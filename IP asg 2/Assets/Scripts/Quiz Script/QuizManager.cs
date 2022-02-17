@@ -155,7 +155,7 @@ public class QuizManager : MonoBehaviour
     }
     public async Task CreateNewPlayerStats(string uuid, string username, int correct, int accuracy)
     {
-        QuizManager quizManager = authMgr.GetCurrentUser().UserId;
+        //QuizManager quizManager = authMgr.GetCurrentUser().UserId;
         CreateAccuracy();
         QuizManager newQuizManager = new QuizManager(username, correct, accuracy);
         Debug.LogFormat("Player details : {0}", newQuizManager.PrintQuizManager());

@@ -1,3 +1,12 @@
+/**
+Author: Bryan Gregory Soh
+
+Name of Class: character movement
+
+Description of Class: this using the vr controller and produces movement using the left to move and the right to rotate the player.
+
+Date Created: 8/02/2022
+**/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +36,7 @@ public class ContinuousMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //gets player rotation
         Quaternion headYaw = Quaternion.Euler(0, origin.Camera.transform.eulerAngles.y, 0);
 
         Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);

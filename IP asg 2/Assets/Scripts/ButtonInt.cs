@@ -1,10 +1,21 @@
-﻿using UnityEngine;
+﻿/**
+Author: Bryan Gregory Soh
+
+Name of Class: button
+
+Description of Class: This class will control the buttons that player will interact with by using enums 
+this will give the button more buildablility to work on more then just one purpose.
+
+Date Created: 10/02/2022
+**/
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.UI;
 using TMPro;
 using System;
 public class ButtonInt : MonoBehaviour
 {
+    //enums to create the changing of states in the button j
     public enum ButtonType
     {
         ColorChange,
@@ -45,6 +56,7 @@ public class ButtonInt : MonoBehaviour
 
     public void Start()
     {
+        //if the state is picked on tthe button make the state true.
         switch (buttonType)
         {
             case ButtonType.PlaySound:
@@ -57,6 +69,7 @@ public class ButtonInt : MonoBehaviour
                 _bookCheck = true;
                 break;
         }
+        //controls the changing of pages in the tutorial portion
         if (_bookCheck ==true)
         {
             pages = new GameObject[transform.childCount];
@@ -102,7 +115,7 @@ public class ButtonInt : MonoBehaviour
         interactable.onHoverEntered.RemoveListener(SetSelectMaterial);
         interactable.onHoverExited.RemoveListener(SetOriginalMaterial);
     }
-
+    // enables and disables colorblind mode for players 
     private void SetSelectMaterial(XRBaseInteractor interactor)
     {
         meshRenderer.material = selectMaterial;
